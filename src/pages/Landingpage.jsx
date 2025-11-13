@@ -27,7 +27,7 @@
            <a href="#features" className="hover:text-slate-900">Features</a>
            <a href="#demo" className="hover:text-slate-900">Interactive Demo</a>
            <Button className="ml-2" onClick={() => navigate('/login')}>Get Started</Button>
-           <DarkMode />
+           {/* <DarkMode /> */}
          </nav>
          <div className="md:hidden">
            <Button

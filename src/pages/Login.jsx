@@ -18,7 +18,7 @@ export default function Login() {
     e.preventDefault();
     // TODO: integrate with backend auth API
     console.log("Login form submitted", form);
-    navigate("/app");
+    navigate("/app/dashboard");
   };
 
   return (

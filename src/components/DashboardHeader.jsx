@@ -1,6 +1,6 @@
-import { Bell, Sun, Moon } from "lucide-react"
+import { Bell} from "lucide-react"
 
-export default function DashboardHeader({ isDarkMode, setIsDarkMode }) {
+export default function DashboardHeader() {
 
   return (
     <header className="flex justify-between items-center mb-6">
@@ -8,12 +8,6 @@ export default function DashboardHeader({ isDarkMode, setIsDarkMode }) {
         Welcome, John Doe {/*To Be replaced by user name*/}
       </h1>
       <div className="flex items-center gap-3">
-        <button
-          onClick={() => setIsDarkMode(!isDarkMode)}
-          className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700"
-        >
-          {isDarkMode ? <Moon size={18} /> : <Sun size={18} />}
-        </button>
         <button className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700">
           <Bell size={18} />
         </button>
