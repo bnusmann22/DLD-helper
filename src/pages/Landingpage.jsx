@@ -1,7 +1,8 @@
- import React, { useState } from 'react';
+ import React, { useState ,useEffect} from 'react';
  import { useNavigate } from 'react-router-dom';
+ import { Bell, Sun, Moon } from "lucide-react"
  import { Button } from '@/components/ui/Button';
- import { DarkMode } from '@/components/ui/DarkMode';
+ import '../App.css'
  import { Card, CardContent } from '@/components/ui/card';
  import { ArrowRight } from 'lucide-react';
  import { motion } from 'framer-motion';
@@ -9,6 +10,13 @@
  export default function LandingPage() {
    const navigate = useNavigate();
    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    useEffect(
+      function () {
+        document.documentElement.classList.toggle("fake-dark-mode");
+      },
+      [isDarkMode]
+    );
 
    return (
      <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900 font-sans dark:bg-gray-700 dark:text-white">
@@ -28,6 +36,12 @@
            <a href="#demo" className="hover:text-slate-900">Interactive Demo</a>
            <Button className="ml-2" onClick={() => navigate('/login')}>Get Started</Button>
            {/* <DarkMode /> */}
+         <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="p-2 rounded-lg"
+          >
+            {isDarkMode ? <Moon size={18} /> : <Sun size={18} />}
+          </button>
          </nav>
          <div className="md:hidden">
            <Button
@@ -53,6 +67,12 @@
              <a href="#demo" className="hover:text-slate-900" onClick={() => setIsMenuOpen(false)}>Interactive Demo</a>
              <a href="#whyus" className="hover:text-slate-900" onClick={() => setIsMenuOpen(false)}>Why Us</a>
              <Button onClick={() => navigate('/login')}>Get Started</Button>
+             <button
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                className="p-2 rounded-lg"
+              >
+                {isDarkMode ? <Moon size={18} /> : <Sun size={18} />}
+              </button>
            </nav>
          </motion.div>
        )}
